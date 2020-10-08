@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>Ejercicio Entregable</title>
+		<script type="text/javascript">  
+
+			function generarNumero(){
+				var numero = Math.ceil(Math.random()*100);
+				parseInt(numero);
+				return numero;
+			}
+
+			function preguntarNumero(){
+
+				var numeroUsuario = prompt("Introduzca un numero del 1 hasta 100: ");
+				console.log(numeroUsuario);
+				parseInt(numeroUsuario);
+				return numeroUsuario;
+
+			}
+
+
+			function empezarJuego(){
+				do{
+					var cont = 0; // COntador de intentos
+					var repetir; // variable para guardar si quiere repetir
+
+					var aleatorio = generarNumero(); // funcion que devuelve el numero aleatorio en int
+					console.log("Generado aleatorio "+aleatorio); // Mensaje para saber el numero oculto atraves de la consola.
+
+				
+					do{
+						do{
+							var usuario = preguntarNumero();
+							cont++;
+						}while(usuario <= 1 || usuario >= 100 || isNaN(usuario)) // Repetira la funcion en caso de que no este en el rango 1 al 100 o si no tiene formato
+				
+						if(aleatorio == usuario){ // Si el usuario acierta le mestraremos el mensjae de que ha ganado.
+							alert("Enhorabuena has acertado el numero ("+aleatorio+")");
+						}else{ // En caso de lo contrario le mostramos el  mesaje de no es el numero oculto.
+							alert("No es el numero oculto");
+							if(usuario > aleatorio){ // SI el numero es menor que el numero oculto le mostrams el mensaje de el numero es menor
+								alert("El numero es menor");
+							}else{ // SI el numero es mayor que el oculto le mostramos el mensaje
+								alert("El numero es mayor");
+							}
+						}
+
+					}while(usuario != aleatorio || usuario === aleatorio); // Saldremos del do while solo en caso de que acierte el usuario el numero oculto. solo me falta en caso del usario le da a cancelar se que es algo de undefined
+
+					alert("Numeros de intentos: "+cont); // Mostramos el numero de intentos
+
+					repetir = prompt("Quieres repetir Si ó No: "); // Le decimos si quiere repetir
+
+					document.write(repetir.toLowerCase()); // LO que ponga el usuario lo ponemos todo a minuscula 
+
+				}while(repetir == "si"); // Si el usario dice si volvero a repetir todo lo anterior.
+
+				alert("Fin del J")
+			}
+		
+		</script> 
+	</head>
+	<body>	
+
+		<input type="button" onclick="empezarJuego();" value='Empezar Juego'>		
+	</body> 
+</html>
