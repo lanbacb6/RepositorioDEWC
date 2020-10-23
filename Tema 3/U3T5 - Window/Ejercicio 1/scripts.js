@@ -31,7 +31,7 @@ window.name = "ventana";
     
         if(pregunta === 'si'){
                      
-            ventana.open("/home/administrador/RepositorioDWEC/Tema 3/U3T5 - Window/Ejercicio 1/IndexAbrir.html","width=200, height=80", "scrollbars=no", "menubar=no")
+            ventana = open("/home/administrador/RepositorioDWEC/Tema 3/U3T5 - Window/Ejercicio 1/IndexAbrir.html",width=200, height=80, scrollbars=no, menubar=no)
               
         }
     }
