@@ -19,7 +19,10 @@ Recuerda que no es necesario utilizar “window” delante de la propiedad.
 
 */
 
-window.name = "ventana";
+let ventana;
+
+ventana = window.name = "miventana";
+
 
 
     function abrirVentana(){
@@ -30,9 +33,14 @@ window.name = "ventana";
         }while(pregunta != 'si' && pregunta != 'no')
     
         if(pregunta === 'si'){
+            
+            ventana = open("", "", "menubar=no, scrollbars=no, width=400, height=400");
+
+            ventana.document.write('<p> Esto es un pequeño texto</p> <input type="button" id="" onclick="cerrarVentana();" value="Abrir Ventana">');
+
+            
                      
-            ventana = open("/home/administrador/RepositorioDWEC/Tema 3/U3T5 - Window/Ejercicio 1/IndexAbrir.html",width=200, height=80, scrollbars=no, menubar=no)
-              
+            
         }
     }
 
