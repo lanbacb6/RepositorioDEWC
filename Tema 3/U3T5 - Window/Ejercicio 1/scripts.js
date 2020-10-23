@@ -30,19 +30,13 @@ window.name = "ventana";
         }while(pregunta != 'si' && pregunta != 'no')
     
         if(pregunta === 'si'){
-          
-           
-           
+                     
             ventana.open("/home/administrador/RepositorioDWEC/Tema 3/U3T5 - Window/Ejercicio 1/IndexAbrir.html","width=200, height=80", "scrollbars=no", "menubar=no")
-    
-           
+              
         }
     }
 
-    function moverVentana(){
-        
-        ventana.moveBy(10,10)
-    }
+  
 
     
 
