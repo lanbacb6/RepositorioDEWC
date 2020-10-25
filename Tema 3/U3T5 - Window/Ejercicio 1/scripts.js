@@ -34,15 +34,35 @@ ventana = window.name = "miventana";
     
         if(pregunta === 'si'){
             
-            ventana = open("", "", "menubar=no, scrollbars=no, width=400, height=400");
+            ventana = open("", "", "menubar=no,scrollbars=no,width=400,height=400");
 
-            ventana.document.write('<p> Esto es un pequeño texto</p> <input type="button" id="" onclick="cerrarVentana();" value="Abrir Ventana">');
-
-            
-                     
+            ventana.document.write('<p> Esto es un pequeño texto</p> <input type="button" id="" onclick="window.close();" value="Cerrar Ventana">');
             
         }
     }
+
+    function moverDerechaAbajo(){
+        ventana.moveBy(10, 10);
+    }
+
+    function AumentarAltoAncho(){
+        ventana.resizeBy(10, 10);
+
+    }
+
+    function AumentarmMasGrande(){
+        ventana.resizeBy(400, 200);
+    }
+
+    function scrollArriba(){
+        ventana.pageXOffset(0);
+    }
+
+    function scrollpixeles(){
+        ventena.scrollBy(10,10);
+    }
+
+
 
   
 
