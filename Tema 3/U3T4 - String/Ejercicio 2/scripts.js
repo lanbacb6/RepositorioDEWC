@@ -11,19 +11,16 @@ Si cumple con todos los requisitos se considera una contraseña segura, de lo  c
 
 */
 
-let letraMinus = "abcdefghijklmnñopqrstuvwxyz"
-let letraMayus = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-let valores = "-_@#€%&"
+let regex = /^(?=.*\d)(?=.*[\u0021-\u002d\u003c-\u0040\u005f])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
 
 
+let password = prompt("Introduzca la contraseña");
 
-let password;
-
-let passSeguro = false;
-
-password = prompt("Introduzca la contraseña");
-
-let tampass = password.length;
+    if(regex.test(password)){
+        alert("Contraseña segura");
+    }else{
+        alert("Contraseña no segura")
+    }
 
   
 
