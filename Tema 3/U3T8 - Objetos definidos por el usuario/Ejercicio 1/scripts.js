@@ -122,14 +122,22 @@ let opcion;
     
     function intervaloDiscos(){
         let inicio;
+        let aux;
         let fin;
 
         inicio = prompt("Introduzca el inicio");
         fin = prompt("Introduzca el fin");
+
+        if(fin < inicio){
+            //mensasje de error;
+            //intervaloDiscos();
+            aux = inicio;
+            inicio = fin;
+            fin = aux;
+        }        
         
-        let subarray = arrayDisco.slice(inicio-1,fin);
-        for(let i = 0;i<subarray.length;i++){
-            document.write("<b>Nombre:</b> "+subarray[i].nombre+" <b>Grupo:</b> "+subarray[i].grupo+" <b>Año:</b> "+subarray[i].year+" <b>Tipo:</b> "+subarray[i].tipo+"<br>");
+        for(let i = inicio-1;i<fin;i++){
+            document.write("<b>Nombre:</b> "+arrayDisco[i].nombre+" <b>Grupo:</b> "+arrayDisco[i].grupo+" <b>Año:</b> "+arrayDisco[i].year+" <b>Tipo:</b> "+arrayDisco[i].tipo+"<br>");
         }   
         
 
@@ -143,26 +151,21 @@ let opcion;
             opcion = prompt("1)Añadir principio 2)Añadir Final");
         }while(opcion != 1 && opcion !=2)
 
+        let  nombre  = prompt ("Introduzca el nombre ");
+        let  grupo = prompt ("Introduzca el grupo")
+        let  year = prompt ("Introduzca el año")
+        let  tipo = prompt ("INtroduzca el tipo")
+        let localizacion = prompt("Introduzca la localizacion ")     
+
         if(opcion == 1){
-            let  nombre  = prompt ("Introduzca el nombre ");
-            let  grupo = prompt ("Introduzca el grupo")
-            let  year = prompt ("Introduzca el año")
-            let  tipo = prompt ("INtroduzca el tipo")
-            let localizacion = prompt("Introduzca la localizacion ")     
-            
+                        
             nuevoDisco.cincoPropiedades(nombre,grupo,year,tipo,localizacion);
 
             arrayDisco.unshift(nuevoDisco);
 
             listadoDisco();
             
-        }else{
-
-            let  nombre  = prompt ("Introduzca el nombre ");
-            let  grupo = prompt ("Introduzca el grupo")
-            let  year = prompt ("Introduzca el año")
-            let  tipo = prompt ("INtroduzca el tipo")
-            let localizacion = prompt("Introduzca la localizacion ")     
+        }else{   
             
             nuevoDisco.cincoPropiedades(nombre,grupo,year,tipo,localizacion);
 
