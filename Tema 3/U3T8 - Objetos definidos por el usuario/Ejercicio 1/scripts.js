@@ -129,11 +129,9 @@ let opcion;
         fin = prompt("Introduzca el fin");
 
         if(fin < inicio){
-            //mensasje de error;
-            //intervaloDiscos();
-            aux = inicio;
-            inicio = fin;
-            fin = aux;
+            alert("Has introducido mal los valores");
+            intervaloDiscos();                 
+            
         }        
         
         for(let i = inicio-1;i<fin;i++){
@@ -156,24 +154,19 @@ let opcion;
         let  year = prompt ("Introduzca el año")
         let  tipo = prompt ("INtroduzca el tipo")
         let localizacion = prompt("Introduzca la localizacion ")     
+        
+        nuevoDisco.cincoPropiedades(nombre,grupo,year,tipo,localizacion);
 
         if(opcion == 1){
-                        
-            nuevoDisco.cincoPropiedades(nombre,grupo,year,tipo,localizacion);
-
+        
             arrayDisco.unshift(nuevoDisco);
 
-            listadoDisco();
-            
         }else{   
-            
-            nuevoDisco.cincoPropiedades(nombre,grupo,year,tipo,localizacion);
-
+        
             arrayDisco.push(nuevoDisco);
-
-            listadoDisco();
-
         }
+        
+        listadoDisco();
     }
 
     function deleteDisco(){
