@@ -19,28 +19,32 @@ y vuelve a comprobar las horas.
 let aeropuerto = new Aeropuerto("Aeropuerto Sevilla", "Sevilla", "10");
 
 let vuelo1 = new Vuelo("1", "15:00", "18:00");
-
 Vuelo.modificarLlegada(vuelo1);
+
 
 function Aeropuerto(nombre, ciudad, nVuelo){
     this.nombre=nombre;
     this.ciudad=ciudad;
-    this.nVuelo=nVuelo;  
+    this.nVuelo=nVuelo;
+         
+    
     
   
 }
 
-function Vuelo() {
-    this.codigo="";
-    this.hora_llegada="";
-    this.hora_salida="";
-        this.modificarLlegada = function (vuelo){
+function Vuelo(codigo, hora_llegada, hora_salida) {
+    this.codigo= codigo;
+    this.hora_llegada= hora_llegada;
+    this.hora_salida=hora_salida;
+    this.modificarLlegada = function (v){
                        
-            vuelo.hora_llegada = prompt("Nuevo hora de llegada")
+            v.hora_llegada = prompt("Nuevo hora de llegada")
             
         }
 
 }
+
+
 
 
 

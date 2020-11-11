@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Formulario</title>
+</head>
+<body>
+    <form>        
+        <table>
+            <tr>
+                <td>Nombre del disco:</td>
+                <td><input type="text" size="20"></td>
+            </tr>
+            <tr></tr>
+                <td>Grupo de música o cantante:</td>
+                <td><input type="text" size="20"></td>
+            </tr>
+            <tr>
+                <td>Año de la publicación:</td>
+                <td><input type="text" size="20"></td>
+            </tr>
+            <tr>
+                <td>Tipo de música:</td>
+                <td>
+                    <select name="tipoM">
+                        <option value="rock">rock</option> 
+                        <option value="pop" selected>pop</option>
+                        <option value="punk">punk</option>
+                        <option value="indie">indie</option>
+                      </select>               
+                </td>
+            </tr>
+            <tr>
+                <td>Localización:</td>
+                <td><input name="Localización" type="radio" value=“1”/>Estanteria 1
+                    <input name="Localización" type="radio" value=“2”/>Estanteria 2
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Prestado:</td>
+                <td>
+                    <input type="checkbox" name="false" checked> False
+                    <input type="checkbox" name="true"> True
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    
+</body>
+</html>
