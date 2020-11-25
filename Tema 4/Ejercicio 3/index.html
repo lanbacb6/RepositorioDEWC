@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Formulario</title>
+    <script src="scripts.js"></script>
+</head>
+<style>
+    .error {
+        border: solid 2px #FF0000;
+    }
+</style>
+<body>
+
+    <h1>Formulario Registro Disco</h1>
+
+    <form action="procesar.php" method="post" id="FormularioDisco">        
+        <table>
+            <tr>
+                <td>Nombre del disco:</td>
+                <td><input type="text" name ="nombre" id ="nombre" size="20"></td>
+            </tr>
+            <tr></tr>
+                <td>Grupo de música o cantante:</td>
+                <td><input type="text" name="grupo" id="grupo" size="20"></td>
+            </tr>
+            <tr>
+                <td>Año de la publicación:</td>
+                <td><input type="text" name="anio" id="anio" size="20"></td>
+            </tr>
+            <tr>
+                <td>Tipo de música:</td>
+                <td>
+                    <select name="tipoM">
+                        <option value="rock">rock</option> 
+                        <option value="pop" selected>pop</option>
+                        <option value="punk">punk</option>
+                        <option value="indie">indie</option>
+                      </select>               
+                </td>
+            </tr>
+            <tr>
+                <td>Localización:</td>
+                <td><input type="number" id="Estanteria" name="Estanteria" min="1" max="50">
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Prestado:</td>
+                <td>
+                    <input name="prestado" type="radio" value="false" checked>False
+                    <input name="prestado" type="radio" value="true">True
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Enviar" id="enviar" />
+    </form>
+
+</body>
+</html>
