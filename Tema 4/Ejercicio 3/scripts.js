@@ -31,17 +31,23 @@ function campo20() {
     let elemento2 = document.getElementById("grupo")
     limpiarError(elemento);
     limpiarError(elemento2);
-    if (elemento.value === "" || elemento2.value === "") {
+    if (elemento.value === "") {
       alert("El campo no puede ser vacío");
       error(elemento);
+      
+      return false;
+    }else if(elemento2.value === ""){
+      alert("El campo no puede ser vacío");
       error(elemento2);
       return false;
     }
+
+
     return true;
 }
 
 function validar(e) {
-    if (campo20 && confirm("Pulsa aceptar si deseas enviar el formulario")
+    if (campo20() && confirm("Pulsa aceptar si deseas enviar el formulario")
     ) {
       return true;
     } else {
