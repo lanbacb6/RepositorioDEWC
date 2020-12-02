@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Formulario</title>
+    <script src="scripts.js"></script>
+</head>
+<style>
+    
+    .error {
+       color: red;
+    }
+
+    .error2 {
+        border: solid 2px #FF0000;
+    }
+  
+</style>
+<body>
+
+    <h1>Formulario Registro Disco</h1>
+
+    <form action="procesar.php" method="post" id="FormularioDisco">        
+        <table>
+            <tr>
+                <td>
+                    <label>Nombre del disco:</label>
+                    <input type="text" name ="nombre" id ="nombre" size="20">                
+                </td>
+            </tr>            
+                <td>
+                    <label>Grupo de música o cantante:</label> 
+                    <input type="text" name="grupo" id="grupo" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Año de la publicación:</label> 
+                    <input type="text" name="anio" id="anio" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Tipo de musica</label>                
+                    <select name="tipoM">
+                        <option value="rock">rock</option> 
+                        <option value="pop" selected>pop</option>
+                        <option value="punk">punk</option>
+                        <option value="indie">indie</option>
+                    </select>               
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Localizacion</label>
+                    <input type="number" id="Estanteria" name="Estanteria" min="1" max="50">
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <label>Prestado</label>                
+                    <input name="prestado" type="radio" value="false" checked>False
+                    <input name="prestado" type="radio" value="true">True
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Enviar" id="enviar" />
+    </form>
+
+</body>
+</html>
