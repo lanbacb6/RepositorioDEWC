@@ -70,7 +70,7 @@ function validarEstanteria () {
 }
 
 function validar(e) {
-  if (campo20() && validarAnio &&  validarEstanteria() && confirm("Pulsa aceptar si deseas enviar el formulario")
+  if (campo20() && validarAnio() &&  validarEstanteria() && confirm("Pulsa aceptar si deseas enviar el formulario")
   ) {
     return true;
   } else {
