@@ -21,9 +21,8 @@ que almacene la información de cada bolsa y validarlo teniendo en cuenta lo sig
 
 */
 
-
 //regexObj.test(cadena) validar cadena.
-//let cuenta = /^[0-9]*[g][a-zA-Z]{1,2}[0-9]?[a-zA-Z]{1,2}[0-9]?/g
+
 
 let formulario = document.getElementById("FormularioBreakingBad");
 
@@ -35,6 +34,7 @@ let cocinero = document.getElementById("cocinero").value;
 let destinatario = document.getElementById("Destinatario").value;
 let gramos = document.getElementById("gramos").value;
 let composicion = document.getElementById("composicion").value;
+let cuenta = document.getElementById("cuenta").value;
 
 function iniciar() {
     document.getElementById("enviar").addEventListener("click", validar, false);
@@ -105,6 +105,16 @@ function validarComposicion(composicion){
         alert("Composicion no valido.");
         return false;
     }
+}
+
+function validarCuenta(cuenta){
+
+    let expcuenta = /^[0-9]*[g][a-zA-Z]{1,2}[0-9]?[a-zA-Z]{1,2}[0-9]?/g
+
+
+
+
+
 }
 
 function validar(e) {
