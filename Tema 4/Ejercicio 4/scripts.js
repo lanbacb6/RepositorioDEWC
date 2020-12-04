@@ -32,7 +32,7 @@ function campo20() {
       alert("El campo Nombre no puede ser vacío");
       error(etiqueta);
       error2(elemento);      
-      return false;
+       return false;
 
     }else if(elemento2.value === ""){
       alert("El campo Grupo no puede ser vacío");
