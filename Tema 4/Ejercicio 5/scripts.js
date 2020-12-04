@@ -100,7 +100,7 @@ function validarComposicion(composicion){
     let expcomposicion = /^\d{3}[A-Za-z]{2}\d{1}[A-Z]{2}\d{1}$/g
 
     if(expcomposicion.test(composicion)){
-        return true;
+         return true;
     }else{
         alert("Composicion no valido.");
         return false;
