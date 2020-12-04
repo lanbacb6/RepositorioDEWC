@@ -28,7 +28,7 @@ function iniciar() {
 
 function campo20() {
     let elemento = document.getElementById("nombre");
-    let elemento2 = document.getElementById("grupo")
+    let elemento2 = document.getElementById("grupo");
     limpiarError(elemento);
     limpiarError(elemento2);
     if (elemento.value === "") {

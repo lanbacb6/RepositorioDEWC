@@ -1,25 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U4T2</title>
+  </head>
 
-        body{
-            height: 100vh;
-            background: gray;
-        }
+  <style>
+    h1{
+      background-color: blue;
+      color: yellow;
+      text-align: center;
+    }
+    .carta {
+      background-image: url(./Imagenes/carta.png);
+      width: 100px;
+      height: 92px;
+    }
+  </style>
 
+  <h1>El juego Memory Version Los Simpson</h1>
+  <br>
 
-    </style>
-</head>
-<body>
-    
-</body>
+  <body>
+    <table class="tabla">
+      <tr class="row1">
+        <td class="col1">
+          <input class="carta" type="image" value="" id="card_0" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col2">
+          <input class="carta" type="image" value="" id="card_1" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col3">
+          <input class="carta" type="image" value="" id="card_2" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col4">
+          <input class="carta" type="image" value="" id="card_3" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+      </tr>
+      <tr class="row2">
+        <td class="col1">
+          <input class="carta" type="image" value="" id="card_4" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col2">
+          <input class="carta" type="image" value="" id="card_5" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col3">
+          <input class="carta" type="image" value="" id="card_6" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col4">
+          <input class="carta" type="image" value="" id="card_7" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+      </tr>
+      <tr class="row3">
+        <td class="col1">
+          <input class="carta" type="image" value="" id="card_8" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col2">
+          <input class="carta" type="image" value="" id="card_9" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col3">
+          <input class="carta" type="image" value="" id="card_10" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+        <td class="col4">
+          <input class="carta" type="image" value="" id="card_11" />
+          <input type="text" value="0" readonly="true" size="1" />
+        </td>
+      </tr>
+    </table>
+
+    <div></div>
+  </body>
 </html>

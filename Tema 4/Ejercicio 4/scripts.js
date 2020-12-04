@@ -8,7 +8,7 @@ para que se visualice correctamente. Ten en cuenta que si el usuario mete correc
 
 */
 
-let formulario = document.getElementById("FormularioDisco");
+
 
 window.onload = iniciar;
 
@@ -18,7 +18,7 @@ function iniciar() {
 
 
 function campo20() {
-    let elemento = document.getElementById("nombre");
+    let elemento = document.getElementById("nombre")
     let elemento2 = document.getElementById("grupo")
     let etiqueta = document.getElementById("nombre").previousElementSibling;
     let etiqueta2 = document.getElementById("grupo").previousElementSibling;

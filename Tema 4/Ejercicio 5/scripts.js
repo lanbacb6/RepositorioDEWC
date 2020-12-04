@@ -69,7 +69,7 @@ function validarCocinero(cocinero){
 
 function validarDestinatario(destinatario){
 
-    let expdestinatario = /^([A-Z]{2,3})_([a-z]{1,10}):([0-9]{4})$/g
+    let expdestinatario = /^([A-Z]{2,3})_([a-z]{1,20}):([0-9]{4})$/g
 
     if(expdestinatario.test(destinatario)){
         return true;
@@ -97,7 +97,7 @@ function validarGramos(gramos){
 }
 
 function validarComposicion(composicion){
-    let expcomposicion = /^\d{2}\][A-Z]{2}\d{1}/g
+    let expcomposicion = /^\d{3}[A-Za-z]{2}\d{1}[A-Z]{2}\d{1}$/g
 
     if(expcomposicion.test(composicion)){
         return true;
@@ -105,7 +105,6 @@ function validarComposicion(composicion){
         alert("Composicion no valido.");
         return false;
     }
-
 }
 
 function validar(e) {
