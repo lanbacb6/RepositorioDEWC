@@ -25,18 +25,18 @@ function iniciar() {
     document.getElementById("enviar").addEventListener("click", validar, false);
 }
 
-
+ 
 function campo20() {
     let elemento = document.getElementById("nombre");
     let elemento2 = document.getElementById("grupo");
     limpiarError(elemento);
     limpiarError(elemento2);
-    if (elemento.value === "") {
+    if (elemento.value === "" || elemento.length < 20) {
       alert("El campo no puede ser vacío");
       error(elemento);
       
       return false;
-    }else if(elemento2.value === ""){
+    }else if(elemento2.value === "" || elemento.length < 20){
       alert("El campo no puede ser vacío");
       error(elemento2);
       return false;
