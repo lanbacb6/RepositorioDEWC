@@ -53,14 +53,14 @@ function inicio() {
 
     // Mostrar la direccion del penultimo enlace.
 
-    info.innerHTML+= "Penultimo enlace "+direccion[direccion.length -2].href+"<br>"
+    info.innerHTML+= "Penultimo enlace "+direccion[direccion.length -2].href+"<br><br>"
 
     //Enlace enlaces que apuntan a /wiki/Municipio
 
     let cantidad = 0;
 
-    for(let i = 0; i < doc.lastChild.getElementsByTagName("a").length;i++) {
-        if(doc.lastChild.getElementsByTagName("a")[i].attributes["href"].value == "/wiki/Municipio") {
+    for(let i = 0; i < document.lastChild.getElementsByTagName("a").length;i++) {
+        if(document.lastChild.getElementsByTagName("a")[i].attributes["href"].value == "/wiki/Municipio") {
             cantidad++;
         }
     }
@@ -68,6 +68,14 @@ function inicio() {
     info.innerHTML += "La cantidad de enlaces con dirección /wiki/Municipio es "+cantidad+".<br><br>";
 
     //El número de enlaces del primer párrafo.
+
+    let parrafo1 = document.getElementsByTagName("p")[0];
+
+    info.innerHTML+= "El parrafo 1 tiene " + parrafo1.getElementsByTagName("a").length + " enlaces";
+    
+
+
+
 
   
 
