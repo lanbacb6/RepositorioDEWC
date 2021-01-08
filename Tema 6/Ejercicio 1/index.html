@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script>
+
+        let READY_STATE_UNINITIALIZED = 0;
+		let READY_STATE_LOADING = 1;
+		let READY_STATE_LOADED = 2;
+		let READY_STATE_INTERACTIVE = 3;
+		let READY_STATE_COMPLETE = 4;
+
+        let peticion_http;
+        
+        function cargarContenido(url, metodo, funcion) {
+				peticion_http = inicializa_xhr();
+
+				if (peticion_http) {
+					peticion_http.onreadystatechange = funcion;
+					peticion_http.open(metodo, url, true);
+					peticion_http.send(null);
+				}
+			}
+
+		function inicializa_xhr() {
+			if (window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			} else if (window.ActiveXObject) {
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		}
+
+
+
+        function mostrarContenido(){
+            if (peticion_http.readyState === READY_STATE_COMPLETE){
+                if(peticion_http.status === 200){
+                    document.getElementById("contenido").value = peticion_http.responseText;
+                }
+            }
+        }
+
+        function descargarArchivo(){
+            cargarContenido(document.getElementById("url").value, "GET", mostrarContenido);
+        }
+
+        window.onload = iniciar;
+
+        function iniciar(){
+            
+            document.getElementById("url").value = window.location.href;
+            document.getElementById("mostrar").addEventListener("click", descargarArchivo);
+            document.getElementById("contenido").value = "";
+        }
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <label>Introduzca la URL: </label>
+    <input type="text" id="url" name="url"><br><br>
+    <button type="submit" id="mostrar">Mostrar Contenido</button><br><br>
+    <label><strong>Contenido del fichero: </strong></label><br>
+    <textarea name="contenido" id="contenido" rows="5" cols="50"></textarea>
+
+
+</body>
+</html>
