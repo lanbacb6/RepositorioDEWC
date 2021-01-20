@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SERIES>
+  <SERIE>
+    <TITULO>The Walking Dead</TITULO>
+    <CADENA>AMC</CADENA>
+    <DIRECTOR>Greg Nicotero</DIRECTOR> 
+    <YEAR>2010</YEAR>
+    <TERMINADA>NO</TERMINADA>
+  </SERIE>
+  <SERIE>
+    <TITULO>Friends</TITULO>
+    <CADENA>NBC</CADENA>
+    <DIRECTOR>Marta Kauffman; ‎David Crane</DIRECTOR> 
+    <YEAR>1994</YEAR>
+    <TERMINADA>SI</TERMINADA>
+  </SERIE>
+  <SERIE>
+    <TITULO>The Umbrella Academy</TITULO>
+    <CADENA>Netflix</CADENA>
+    <DIRECTOR>Steve Blackman</DIRECTOR> 
+    <YEAR>2019</YEAR>
+    <TERMINADA>NO</TERMINADA>
+  </SERIE>
+</SERIES>
