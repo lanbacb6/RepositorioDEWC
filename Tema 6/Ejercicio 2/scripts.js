@@ -38,10 +38,10 @@ function estadoPeticion() {
     if (miXHR.readyState == 4 && miXHR.status == 200) {
       
             if(miXHR.responseText === "SI"){
-                correcto(miXHR.responseText);
+                document.getElementById("resultado").style = "background-color: green;"
                 
             }else{
-                error(miXHR.responseText);
+                document.getElementById("resultado").style = "background-color: red;"
                 
             }
 
@@ -50,11 +50,4 @@ function estadoPeticion() {
     }
 }
 
-function correcto(elemento){
-    elemento.className = "correcto";
-}
-
-function error(elemento){
-    elemento.className = "error";
-}
 
