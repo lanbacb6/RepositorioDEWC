@@ -1,0 +1,30 @@
+{
+
+  "CATALOGO": {
+
+     "SERIE":[{
+                "TITULO": "The Walking Dead",
+                "CADENA": "AMC",
+                "DIRECTOR": "Greg Nicotero",
+                "YEAR": "2010",
+                "TERMINADA": "NO"
+              },
+              {
+                "TITULO": "Friends",
+                "CADENA": "NBC",
+                "DIRECTOR": "Marta Kauffman; ‎David Crane",
+                "YEAR": "1994",
+                "TERMINADA": "SI"
+              },
+              {
+                "TITULO": "The Umbrella Academy",
+                "CADENA": "Netflix",
+                "DIRECTOR": "Steve Blackman",
+                "YEAR": "2019",
+                "TERMINADA": "NO"
+              }
+          ]
+  }
+}
+
+
