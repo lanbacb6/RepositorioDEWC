@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="scripts.js"></script>
+    <title>Ejercicio 6</title>
+    <style type="text/css">   
+        table{
+         text-align: center;
+         width: 100%;
+       }
+   
+       #celdaImagen{
+         width: 10%;
+       }
+   
+       table,th,td {
+         border: 1px solid black;
+         border-collapse: collapse;
+       }
+   
+       th,td {
+         padding: 5px;
+       }
+   
+       .rojo {
+         color: red;
+       }
+   
+       .amarillo {
+         color: yellow;
+       }
+   
+       .verde {
+         color: green;
+       }   
+   
+   
+       </style> 
+</head>
+<body>
+
+    <h1>Insertar Series</h1>
+    Título de la serie:
+    <input type="text" id="titulo" name="titulo"/>
+    <br>
+    Director:
+    <input type="text" id="director" name="director"/>
+    <br>
+    Cadena:
+    <input type="text" id="cadena" name="cadena"/>
+    <br>
+    Año:
+    <input type="number" id="year" name="year"/>
+    <br>
+    Terminado:
+    <input type="checkbox" id="terminado" name="terminado"/>
+    <br><br>
+
+    <input type="button" id="enviar" value="Enviar">
+    
+
+    <div id="error"></div>
+
+    <hr>
+
+    <table id="demo"></table>
+
+
+</body>
+</html>
