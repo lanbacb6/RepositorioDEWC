@@ -7,6 +7,7 @@ function iniciar() {
 
 
 function generarInput(){
+    
     formulario = document.getElementById("formulario");
     
         for (a = 0; a < columnas; a++) {

@@ -22,7 +22,7 @@ function cargarJSON(json) {
     //OBJETO JSON
     let docJSON = JSON.parse(json.responseText);
 
-    let tabla = "<tr><th>Título</th><th>Cadena</th><th>Director</th><th>Año</th><th>Terminada</th></tr>";
+    let tabla = "<tr><th>z</th><th>Cadena</th><th>Director</th><th>Año</th><th>Terminada</th></tr>";
     let series = docJSON.CATALOGO.SERIE;
 
     for (serie of series) {
