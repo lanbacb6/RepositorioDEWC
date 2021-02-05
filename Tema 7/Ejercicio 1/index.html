@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript"> 
+
+       
+
+
+        function guardar(){
+            let select = document.getElementById('almacenamiento').value;
+
+            if(select == "LOCAL"){
+
+            let clave = document.getElementById('clave').value; 
+            let valor = document.getElementById('valor').value; 
+            localStorage.setItem(clave,valor);
+            mostrarDatos(clave);
+
+            }else if(select == "SESION"){
+
+            let clave = document.getElementById('clave').value; 
+            let valor = document.getElementById('valor').value; 
+            sessionStorage.setItem(clave,valor);
+            mostrarDatos(clave);
+
+            }     
+       
+        }
+
+        function refrescar(){
+            let select = document.getElementById('almacenamiento').value;
+            
+            if(select == "LOCAL"){
+
+                let clave = document.getElementById('clave').value; 
+                let valor = document.getElementById('valor').value; 
+                localStorage.setItem(clave,valor);
+                mostrarDatos(clave);
+
+                }else if(select == "SESION"){
+
+                let clave = document.getElementById('clave').value; 
+                let valor = document.getElementById('valor').value; 
+                sessionStorage.setItem(clave,valor);
+                mostrarDatos(clave);
+
+                }     
+
+        }
+
+        function mostrarDatos(){
+
+            let select = document.getElementById('almacenamiento').value;
+
+            if(select == "LOCAL"){
+                let datosDisponibles=document.getElementById('localArea'); datosDisponibles.innerHTML='';
+
+                for(let i=0;i<localStorage.length;i++){ 
+                    let clave = localStorage.key(i);
+                    let valor = localStorage.getItem(clave); 
+                    datosDisponibles.innerHTML += clave+' - '+valor;  
+
+                }
+
+            }else if(select == "SESION"){
+                let datosDisponibles=document.getElementById('sesionArea'); datosDisponibles.innerHTML='';
+            
+                for(let i=0;i<sessionStorage.length;i++){ 
+                    let clave = sessionStorage.key(i);
+                    let valor = sessionStorage.getItem(clave); 
+                    datosDisponibles.innerHTML += clave+' - '+valor;  
+
+                }
+
+            }
+
+            
+        
+        }
+
+        function eliminar(){
+            sessionStorage.clear(); mostrarDatos(); 
+            localStorage.clear(); mostrarDatos(); 
+        }
+
+
+        
+
+    
+    
+    
+    
+    
+    </script>
+    <title>Diferencias de almacenamiento</title>
+</head>
+<body>
+
+    AREA DE ALMACENAMIENTO:
+    <select name="almacenamiento" id="almacenamiento">
+        <option value="LOCAL">LOCAL</option>   
+        <option value="SESION">SESION</option>       
+    </select>
+    <br>
+    CLAVE:
+    <input type="text" id="clave" name="clave">
+    <br>
+    VALOR:
+    <input type="text" id="valor" name="valor">
+
+    <br><br>
+
+    <input type="button"  onclick="guardar()" id="guardar" name="guardar" value="Guardar">
+    <input type="button"  onclick="eliminar()" id="eliminar" name="eliminar" value="Eliminar">
+    <input type="button"  onclick="refrescar()" id="refrescar" name="refrescar" value="Refrescar">
+    <input type="button"  onclick="compatibilidad()" id="compatibilidad" name="compatibilidad" value="Comprobar compatibilidad del navegador ">
+    <br><br>
+    CLAVES Y VALORES EN LOCAL STORAGE    
+    <br>
+    <textarea id="localArea" name="localArea" rows="4" cols="50">
+    </textarea>
+    <br><br>
+    CLAVES Y VALORES EN SESION STORAGE
+    <br>
+    <textarea id="sesionArea" name="sesionArea" rows="4" cols="50">
+    </textarea>
+
+
+</body>
+</html>

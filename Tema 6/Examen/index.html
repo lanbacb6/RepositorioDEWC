@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="scripts.js"></script>
+    <style type="text/css">   
+        table{
+         text-align: center;
+         width: 100%;
+       }      
+   
+       table,th,td {
+         border: 1px solid black;
+         border-collapse: collapse;
+       }
+   
+       th,td {
+         padding: 5px;
+       }   
+       </style>  
+    <title>Index</title>
+</head>
+<body>
+
+    <label for="comunidad">CCAA:</label>
+    <select name="comunidad" id="comunidad">      
+    </select> 
+    D.Entregadas:
+    <input type="number" id="entregadas" name="entregadas">
+    D.Admin:
+    <input type="number" id="admin" name="admin">
+    D.Completa:
+    <input type="number" id="completa" name="completa">
+    P.Entregadas:
+    <input type="number" id="entregadas" name="entregadas">
+    P.Admin:
+    <input type="number" id="padmin" name="padmin">
+    P.Completa
+    <input type="number" id="pcompleta" name="pcompleta">
+    <input type="button" id="modificar" name="modificar" value="modificar">
+
+    <br>
+    <input type="button" id="cargarDatosXMLRequest" name="cargarDatosXMLRequest" value ="Cargar Datos Vacunacion XMLHttpRequest"/>
+    <input type="button" id="cargarDatosFetch" name="cargarDatosFetch" value ="cargarDatosFetch"/>
+
+    <table id="table"></table>
+</body>
+</html>
