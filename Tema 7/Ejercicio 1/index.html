@@ -35,17 +35,13 @@
             
             if(select == "LOCAL"){
 
-                let clave = document.getElementById('clave').value; 
-                let valor = document.getElementById('valor').value; 
-                localStorage.setItem(clave,valor);
-                mostrarDatos(clave);
+              
+                mostrarDatos();
 
                 }else if(select == "SESION"){
 
-                let clave = document.getElementById('clave').value; 
-                let valor = document.getElementById('valor').value; 
-                sessionStorage.setItem(clave,valor);
-                mostrarDatos(clave);
+                
+                mostrarDatos();
 
                 }     
 
@@ -82,8 +78,38 @@
         }
 
         function eliminar(){
-            sessionStorage.clear(); mostrarDatos(); 
-            localStorage.clear(); mostrarDatos(); 
+            let select = document.getElementById('almacenamiento').value;
+
+            let clave = document.getElementById('clave').value;
+
+            if(select == "LOCAL"){
+                localStorage.removeItem(clave); 
+            } else {
+                sessionStorage.removeItem(clave); 
+            }
+
+            mostrarDatos(); 
+
+            
+             
+        }
+
+        function compatibilidad(){
+            if (window.localStorage) {
+                alert("Tu navegador es compatible (local Storage)");
+            
+            }
+            else {
+                throw new Error('Tu Navegador no soporta LocalStorage!');
+            }
+            
+            if(window.sessionStorage){
+                alert ("Tu navegador es compatible (Session Storage)");
+            }
+            else {
+                throw new Error('Tu Navegador no soporta SessionStorage!');
+            }
+        
         }
 
 
