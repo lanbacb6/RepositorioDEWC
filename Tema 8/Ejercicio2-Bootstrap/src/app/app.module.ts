@@ -2,19 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ListaComponent } from './lista/lista.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { BootstrapComponent } from './bootstrap/bootstrap.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaComponent
+    BootstrapComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

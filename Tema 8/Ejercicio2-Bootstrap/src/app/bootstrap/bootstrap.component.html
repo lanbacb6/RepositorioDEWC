@@ -1,0 +1,65 @@
+   <div class="row">
+    <div class="col-xl-12 ">
+      <div class="form-group">       
+        <div class="input-group">
+          <span class="input-group-addon">CCAA</span>  
+          <select class="form-select" aria-label="Default select example">
+            <option value="1">Andalucía</option>
+            <option value="2">Aragón</option>
+            <option value="3">Asturias</option>
+            <option value="4">Baleares</option>
+          </select>     
+          <span class="input-group-addon">D. Entregadas</span>     
+          <input name="remitosucursal" id="remitosucursal" type="number" required class="form-control">
+          <span class="input-group-addon">D. Admin</span>
+          <input name="remitonumero" id="remitonumero" type="number" required class="form-control">
+          <span class="input-group-addon">D. Completa</span>
+          <input name="remitonumero" id="remitonumero" type="number" required class="form-control">
+          <span class="input-group-addon">P. Entregadas</span>
+          <input name="remitonumero" id="remitonumero" type="number" required class="form-control">
+          <span class="input-group-addon">P. Admin</span>
+          <input name="remitonumero" id="remitonumero" type="number" required class="form-control">
+          <span class="input-group-addon">P. Completa</span>
+          <input name="remitonumero" id="remitonumero" type="number" required class="form-control">
+          
+          <button type="button" class="btn btn-primary">Modificar Datos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+  Datos cagargados desde la Web
+  <hr>
+
+  <button type="button" class="btn btn-primary">Cargar Datos Vacunacion (XMLHttpRequest)</button>&nbsp; <button type="button" class="btn btn-primary">Cargar datos vacunación(Fetch)</button>
+
+  <br><br>
+  <h1>Tabla de vacunación</h1>
+  <br>
+  <table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Comunidad</th>
+    <th scope="col">D. Entregadas</th>
+    <th scope="col">D. Admin</th>
+    <th scope="col">D. Completa</th>
+    <th scope="col">% Entregadas</th>
+    <th scope="col">%Pobl. Admin.</th>
+    <th scope="col">%Pobl. Completa</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let ccaa of comunidades; index as i">
+   
+    <td>
+      
+      {{ ccaa.Comunidad }}
+    </td>
+    <td>{{ ccaa.dentregadas | number }}</td>
+    <td>{{ ccaa.dadmin | number }}</td>
+    <td>{{ ccaa.dcompleta | number }}</td>
+    <td>{{ ccaa.pcompleta | number }}</td>
+    <td>{{ ccaa.ppobladmin | number }}</td>
+    <td>{{ ccaa.ppoblacomp | number }}</td>
+  </tr>
