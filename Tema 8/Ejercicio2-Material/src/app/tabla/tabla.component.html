@@ -1,0 +1,46 @@
+<h1>Tabla de Vacunación</h1>
+
+<button mat-raised-button (click)="click()" color="primary">Cargar Datos de vacunación (XMLHttpRequest)</button>
+&nbsp;
+<button mat-raised-button (click)="click()" color="primary">Cargar datos vacunación (Fetch)</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="comunidad">
+    <th mat-header-cell *matHeaderCellDef> Comunidad </th>
+    <td mat-cell *matCellDef="let element"> {{element.ccaa}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dEntregadas">
+    <th mat-header-cell *matHeaderCellDef> D. Entregadas </th>
+    <td mat-cell *matCellDef="let element"> {{element.dosisEntregadas}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dAdmin">
+    <th mat-header-cell *matHeaderCellDef> D. Admin </th>
+    <td mat-cell *matCellDef="let element"> {{element.dosisAdministradas}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dCompleta">
+    <th mat-header-cell *matHeaderCellDef> D. Completas </th>
+    <td mat-cell *matCellDef="let element"> {{element.dosisPautaCompletada}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pEntregadas">
+    <th mat-header-cell *matHeaderCellDef> P. Entregadas </th>
+    <td mat-cell *matCellDef="let element"> {{element.porcentajeEntregadas}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pPoblAdmin">
+    <th mat-header-cell *matHeaderCellDef> P. PoblAdmin </th>
+    <td mat-cell *matCellDef="let element"> {{element.porcentajePoblacionAdministradas}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pPoblCompleta">
+    <th mat-header-cell *matHeaderCellDef> P. PoblCompleta </th>
+    <td mat-cell *matCellDef="let element"> {{element.porcentajePoblacionCompletas}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
