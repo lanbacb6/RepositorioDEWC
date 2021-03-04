@@ -25,8 +25,7 @@
 <body>
 
     <label for="comunidad">CCAA:</label>
-    <select name="comunidad" id="comunidad">      
-    </select> 
+    <select id="ccaa" id="ccaa"></select> 
     D.Entregadas:
     <input type="number" id="entregadas" name="entregadas">
     D.Admin:
@@ -34,17 +33,21 @@
     D.Completa:
     <input type="number" id="completa" name="completa">
     P.Entregadas:
-    <input type="number" id="entregadas" name="entregadas">
+    <input type="number" id="pentregadas" name="pentregadas">
     P.Admin:
     <input type="number" id="padmin" name="padmin">
     P.Completa
     <input type="number" id="pcompleta" name="pcompleta">
-    <input type="button" id="modificar" name="modificar" value="modificar">
+    <input type="button" id="modificar" name="modificar" value="modificar"> 
 
     <br>
     <input type="button" id="cargarDatosXMLRequest" name="cargarDatosXMLRequest" value ="Cargar Datos Vacunacion XMLHttpRequest"/>
     <input type="button" id="cargarDatosFetch" name="cargarDatosFetch" value ="cargarDatosFetch"/>
 
+    <div id="resultado"></div>
+
+    
     <table id="table"></table>
+
 </body>
 </html>

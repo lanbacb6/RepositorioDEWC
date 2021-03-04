@@ -1,19 +1,22 @@
 window.onload = iniciar;
 
 function iniciar() {
-    document.getElementById("cargarDatosXMLRequest").addEventListener("click", peticion, true);
-    document.getElementById("cargarDatosFetch").addEventListener("click", cargarDatosFetch, true);
-
+    document.getElementById("cargarDatosXMLRequest").addEventListener("click", crearPeticion, true);
+    document.getElementById("cargarDatosFetch").addEventListener("click", cargarDatosFetch ,true);
+    document.getElementById("modificar").addEventListener("click", modificarDatos, true);
+    
 }
 
-function peticion(){
+function crearPeticion(){
+
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        cargarJSON(xhr);
-      }
+        if(xhr.readyState == 4 && xhr.status == 200){
+            cargarJSON(xhr);
+        }
     };
-    xhr.open("GET", "latest.json", true);
+
+    xhr.open("GET", "https://covid-vacuna.app/data/latest.json", true);
     xhr.send();
 
 }
@@ -21,97 +24,154 @@ function peticion(){
 function cargarJSON(json) {
     let docJSON = JSON.parse(json.responseText);
 
-    console.log((docJSON))
+    let comunidades = new Array();
 
-    console.log((docJSON[0].ccaa));
+    for(let i = 0; i < docJSON.length; i++){
+        if(docJSON[i].ccaa != "Totales"){
+            let comunidad = {
+                "ccaa" : docJSON[i].ccaa,
+                "dosisEntregadas" : docJSON[i].dosisEntregadas,
+                "dosisAdministradas" : docJSON[i].dosisAdministradas,
+                "dosisPautaCompletada" : docJSON[i].dosisPautaCompletada,
+                "porcentajeEntregadas" : docJSON[i].porcentajeEntregadas,
+                "porcentajePoblacionAdministradas" : docJSON[i].porcentajePoblacionAdministradas,
+                "porcentajePoblacionCompletas" : docJSON[i].porcentajePoblacionCompletas
 
-    let tabla = "<tr><th>Comunidad</th><th>D.Entregadas.</th><th>D.admin</th><th>D.Completada</th><th>%Entregadas</th><th>%Pobla Admin</th><th>%Pobla. Administrada</th></tr>";
+            }
 
-    for(let i = 0; i <docJSON.length; i++){
-        tabla += "<tr><td>";
+            comunidades.push(comunidad);
+        }        
+    }
 
-        tabla += docJSON[i].ccaa;
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log(this.responseText);
+            let respuesta = JSON.parse(this.responseText);
+            imprimirTabla(respuesta);
+        }
+    }
 
-        tabla += "</td><td>";
+    let parametros = JSON.stringify(comunidades);
+    xhr.open("POST", "insertar_comunidades.php", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(parametros);
+}
 
-        tabla += docJSON[i].dosisAdministradas;
+function cargarDatosFetch(){
 
-        tabla += "</td><td>"
+    fetch("https://covid-vacuna.app/data/latest.json")
+    .then((response) => response.json())
+    .then((data) => {
 
-        tabla += docJSON[i].dosisEntregadas;
+        let comunidades = new Array();
 
-        tabla += "</td><td>"
-
-        tabla += docJSON[i].dosisEntregadasModerna;
-
-        tabla += "</td><td>"
-
-        tabla += docJSON[i].dosisPautaCompletada;
-
-        tabla += "</td><td>"
-
-        tabla += docJSON[i].porcentajePoblacionAdministradas;
-
-        tabla += "</td><td>"
-        tabla += docJSON[i].porcentajePoblacionCompletas;
-        
-    } 
-
-    document.getElementById("table").innerHTML = tabla;
+        for(let i = 0; i < data.length; i++){
+            if(data[i].ccaa != "Totales"){
+                let comunidad = {
+                    "ccaa" : data[i].ccaa,
+                    "dosisEntregadas" : data[i].dosisEntregadas,
+                    "dosisAdministradas" : data[i].dosisAdministradas,
+                    "dosisPautaCompletada" : data[i].dosisPautaCompletada,
+                    "porcentajeEntregadas" : data[i].porcentajeEntregadas,
+                    "porcentajePoblacionAdministradas" : data[i].porcentajePoblacionAdministradas,
+                    "porcentajePoblacionCompletas" : data[i].porcentajePoblacionCompletas
     
+                }
     
-    let xhr = new XMLHttpRequest();   
+                comunidades.push(comunidad);
+            }        
+        }
 
-    let parametros = JSON.stringify(docJSON.responseText);
-
-    xhr.open("POST","insertar_comunidad.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("objeto=" + parametros);
-
+        fetch('insertar_comunidades.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(comunidades)
+            
+        })
+        .then((response) => response.json())
+        .then((result) =>   imprimirTabla(result))
+        .catch((error) => console.log("Error: " + error));
+    })
+    .catch((err) => console.log(err));
+    
 
 }
 
-function cargarDatosFetch () {
+function modificarDatos(){
 
-    fetch('latest.json')
-        
-    .then((response) => response.json())
+    let modificarComunidad = {
+        "ccaa": document.getElementById("ccaa").value,
+        "dosisEntregadas" : document.getElementById("entregadas").value,
+        "dosisAdministradas" : document.getElementById("admin").value,
+        "dosisPautaCompletada" : document.getElementById("completa").value,
+        "porcentajeEntregadas" : document.getElementById("pentregadas").value,
+        "porcentajePoblacionAdministradas" : document.getElementById("padmin").value,
+        "porcentajePoblacionCompletas" : document.getElementById("pcompleta").value
+    }
 
-    .then((data) => {
-        let tabla = "<tr><th>Comunidad</th><th>D.Entregadas.</th><th>D.admin</th><th>D.Completada</th><th>%Entregadas</th><th>%Pobla Admin</th><th>%Pobla. Administrada</th></tr>";
-        for (let i = 0; i <data.length; i++) {
-            tabla += "<tr><td>";
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log(this.responseText);
+            let respuesta = JSON.parse(this.responseText);
+            imprimirTabla(respuesta);
+        }
+    };
 
-        tabla += data[i].ccaa;
+    let parametros = JSON.stringify(modificarComunidad);
+    xhr.open("POST", "actualizar_comunidad.php", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(parametros);
 
+    
+
+}
+
+function imprimirTabla(datosJSON){
+
+    console.log(datosJSON);
+
+    document.getElementById("resultado").innerHTML = "<hr>Resultado cargados desde la Web <hr>";
+
+    let tabla = "<tr><th>Comunidad</th><th>D.Entregadas</th><th>D.Admin</th><th>D.Completa</th><th>% Entregadas</th><th>% Pobl. Admin.</th><th>% Pobl. Completa</th></tr>";
+
+    let select = document.getElementById("ccaa");
+    
+
+    for(let i = 0; i<datosJSON.length; i++){
+
+        let option = document.createElement("option");
+        let texto = document.createTextNode(datosJSON[i].ccaa);
+        option.setAttribute("value", datosJSON[i].ccaa);
+        option.appendChild(texto)
+        select.appendChild(option);
+
+
+
+        tabla += "<tr><td>";
+        tabla += datosJSON[i].ccaa;
         tabla += "</td><td>";
-
-        tabla += data[i].dosisAdministradas;
-
+        tabla += datosJSON[i].dosisEntregadas;
         tabla += "</td><td>"
-
-        tabla += data[i].dosisEntregadas;
-
+        tabla += datosJSON[i].dosisAdministradas;
         tabla += "</td><td>"
-
-        tabla += data[i].dosisEntregadasModerna;
-
+        tabla += datosJSON[i].dosisPautaCompletada;
         tabla += "</td><td>"
-
-        tabla += data[i].dosisPautaCompletada;
-
+        tabla += datosJSON[i].porcentajeEntregadas;
         tabla += "</td><td>"
-
-        tabla += data[i].porcentajePoblacionAdministradas;
-
+        tabla += datosJSON[i].porcentajePoblacionAdministradas;
         tabla += "</td><td>"
-        tabla += data[i].porcentajePoblacionCompletas;
+        tabla += datosJSON[i].porcentajePoblacionCompletas;
+        tabla += "</td></tr>"
         
-    } 
 
-    document.getElementById("table").innerHTML = tabla;        
-         
-    })
-    .catch((err) => console.log(err));
+    }   
 
+    document.getElementById("table").innerHTML = tabla;
+        
+    
+  
 }
